@@ -4,6 +4,12 @@ import { AppService } from './app.service';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { models } from './database/models/index'; 
 import { ConfigModule } from '@nestjs/config';
+import { UserController } from './modules/users/user.controller';
+import { UserService } from './modules/users/user.service';
+import { UserModule } from './modules/users/user.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { PostModule } from './modules/posts/posts.module';
+import { MidiaModule } from './modules/midia/midia.module';
 
 
 @Module({
@@ -22,6 +28,13 @@ import { ConfigModule } from '@nestjs/config';
       autoLoadModels: true,
      
     }),
+
+    UserModule,
+    AuthModule,
+    PostModule,
+    MidiaModule
+    
+
   ],
   controllers: [AppController],
   providers: [AppService],
